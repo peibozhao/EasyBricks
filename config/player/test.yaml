@@ -1,0 +1,12 @@
+type: 'blhx'
+name: 'blhx'
+pages:
+  - name: '测试'
+    conditions:
+      - {pattern: 'XQueryPointer'}
+modes:
+  - name: '测试'
+    page_operations:
+      - page: '测试'
+        operations:
+          - {type: 'click', pattern: 'XQueryPointer'}

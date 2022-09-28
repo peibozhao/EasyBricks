@@ -1,0 +1,663 @@
+type: 'blhx'
+name: 'blhx'
+pages:
+  - name: '弹出窗口-演习次数不足'
+    conditions:
+      - {pattern: '演习次数不足'}
+  - name: '弹出窗口-困难关卡次数不足'
+    conditions:
+      - {pattern: '困难关卡每日挑战次数已达上限'}
+  - name: '登陆页面'
+    conditions:
+      - {pattern: '碧蓝航线', x_range: [0., 0.2], y_range: [0., 0.2]}
+      - {pattern: '服务器', x_range: [0.3, 0.5], y_range: [0.7, 0.9]}
+  - name: '活动页面'
+    conditions:
+      - {pattern: '活动总览', x_range: [0., 0.2], y_range: [0., 0.1]}
+  - name: '主页'
+    conditions:
+      - {pattern: '出击', x_range: [0.7, 1.], y_range: [0.4, 0.5]}
+  - name: '个人信息'
+    conditions:
+      - {pattern: '个人信息', x_range: [0., 0.3], y_range: [0., 0.2]}
+  - name: '出击主页'
+    conditions:
+      - {pattern: '主线', x_range: [0., 0.5], y_range: [0.5, 1.]}
+  - name: '章节选择-普通-1章'
+    conditions:
+      - {pattern: '第1章', x_range: [0., 0.3], y_range: [0., 0.3]}
+      - {pattern: '困难', x_range: [0., 0.2], y_range: [0.8, 1.]}
+  - name: '章节选择-普通-2章'
+    conditions:
+      - {pattern: '第2章', x_range: [0., 0.3], y_range: [0., 0.3]}
+      - {pattern: '困难', x_range: [0., 0.2], y_range: [0.8, 1.]}
+  - name: '章节选择-普通-3章'
+    conditions:
+      - {pattern: '第3章', x_range: [0., 0.3], y_range: [0., 0.3]}
+      - {pattern: '困难', x_range: [0., 0.2], y_range: [0.8, 1.]}
+  - name: '章节选择-普通-4章'
+    conditions:
+      - {pattern: '第4章', x_range: [0., 0.3], y_range: [0., 0.3]}
+      - {pattern: '困难', x_range: [0., 0.2], y_range: [0.8, 1.]}
+  - name: '章节选择-普通-5章'
+    conditions:
+      - {pattern: '第5章', x_range: [0., 0.3], y_range: [0., 0.3]}
+      - {pattern: '困难', x_range: [0., 0.2], y_range: [0.8, 1.]}
+  - name: '章节选择-普通-6章'
+    conditions:
+      - {pattern: '第6章', x_range: [0., 0.3], y_range: [0., 0.3]}
+      - {pattern: '困难', x_range: [0., 0.2], y_range: [0.8, 1.]}
+  - name: '章节选择-普通-7章'
+    conditions:
+      - {pattern: '第7章', x_range: [0., 0.3], y_range: [0., 0.3]}
+      - {pattern: '困难', x_range: [0., 0.2], y_range: [0.8, 1.]}
+  - name: '章节选择-普通-8章'
+    conditions:
+      - {pattern: '第8章', x_range: [0., 0.3], y_range: [0., 0.3]}
+      - {pattern: '困难', x_range: [0., 0.2], y_range: [0.8, 1.]}
+  - name: '章节选择-普通-9章'
+    conditions:
+      - {pattern: '第9章', x_range: [0., 0.3], y_range: [0., 0.3]}
+      - {pattern: '困难', x_range: [0., 0.2], y_range: [0.8, 1.]}
+  - name: '章节选择-普通-10章'
+    conditions:
+      - {pattern: '第10章', x_range: [0., 0.3], y_range: [0., 0.3]}
+      - {pattern: '困难', x_range: [0., 0.2], y_range: [0.8, 1.]}
+  - name: '章节选择-普通-11章'
+    conditions:
+      - {pattern: '第11章', x_range: [0., 0.3], y_range: [0., 0.3]}
+      - {pattern: '困难', x_range: [0., 0.2], y_range: [0.8, 1.]}
+  - name: '章节选择-普通-12章'
+    conditions:
+      - {pattern: '第12章', x_range: [0., 0.3], y_range: [0., 0.3]}
+      - {pattern: '困难', x_range: [0., 0.2], y_range: [0.8, 1.]}
+  - name: '章节选择-普通-13章'
+    conditions:
+      - {pattern: '第13章', x_range: [0., 0.3], y_range: [0., 0.3]}
+      - {pattern: '困难', x_range: [0., 0.2], y_range: [0.8, 1.]}
+  - name: '章节选择-普通-14章'
+    conditions:
+      - {pattern: '第14章', x_range: [0., 0.3], y_range: [0., 0.3]}
+      - {pattern: '困难', x_range: [0., 0.2], y_range: [0.8, 1.]}
+  - name: '章节选择-困难-1章'
+    conditions:
+      - {pattern: '第1章', x_range: [0., 0.3], y_range: [0., 0.3]}
+      - {pattern: '普通', x_range: [0., 0.2], y_range: [0.8, 1.]}
+  - name: '章节选择-困难-2章'
+    conditions:
+      - {pattern: '第2章', x_range: [0., 0.3], y_range: [0., 0.3]}
+      - {pattern: '普通', x_range: [0., 0.2], y_range: [0.8, 1.]}
+  - name: '章节选择-困难-3章'
+    conditions:
+      - {pattern: '第3章', x_range: [0., 0.3], y_range: [0., 0.3]}
+      - {pattern: '普通', x_range: [0., 0.2], y_range: [0.8, 1.]}
+  - name: '章节选择-困难-4章'
+    conditions:
+      - {pattern: '第4章', x_range: [0., 0.3], y_range: [0., 0.3]}
+      - {pattern: '普通', x_range: [0., 0.2], y_range: [0.8, 1.]}
+  - name: '章节选择-困难-5章'
+    conditions:
+      - {pattern: '第5章', x_range: [0., 0.3], y_range: [0., 0.3]}
+      - {pattern: '普通', x_range: [0., 0.2], y_range: [0.8, 1.]}
+  - name: '章节选择-困难-6章'
+    conditions:
+      - {pattern: '第6章', x_range: [0., 0.3], y_range: [0., 0.3]}
+      - {pattern: '普通', x_range: [0., 0.2], y_range: [0.8, 1.]}
+  - name: '章节选择-困难-7章'
+    conditions:
+      - {pattern: '第7章', x_range: [0., 0.3], y_range: [0., 0.3]}
+      - {pattern: '普通', x_range: [0., 0.2], y_range: [0.8, 1.]}
+  - name: '章节选择-困难-8章'
+    conditions:
+      - {pattern: '第8章', x_range: [0., 0.3], y_range: [0., 0.3]}
+      - {pattern: '普通', x_range: [0., 0.2], y_range: [0.8, 1.]}
+  - name: '章节选择-困难-9章'
+    conditions:
+      - {pattern: '第9章', x_range: [0., 0.3], y_range: [0., 0.3]}
+      - {pattern: '普通', x_range: [0., 0.2], y_range: [0.8, 1.]}
+  - name: '章节选择-困难-10章'
+    conditions:
+      - {pattern: '第10章', x_range: [0., 0.3], y_range: [0., 0.3]}
+      - {pattern: '普通', x_range: [0., 0.2], y_range: [0.8, 1.]}
+  - name: '章节选择-困难-11章'
+    conditions:
+      - {pattern: '第11章', x_range: [0., 0.3], y_range: [0., 0.3]}
+      - {pattern: '普通', x_range: [0., 0.2], y_range: [0.8, 1.]}
+  - name: '章节选择-困难-12章'
+    conditions:
+      - {pattern: '第12章', x_range: [0., 0.3], y_range: [0., 0.3]}
+      - {pattern: '普通', x_range: [0., 0.2], y_range: [0.8, 1.]}
+  - name: '章节选择-困难-13章'
+    conditions:
+      - {pattern: '第13章', x_range: [0., 0.3], y_range: [0., 0.3]}
+      - {pattern: '普通', x_range: [0., 0.2], y_range: [0.8, 1.]}
+  - name: '章节选择-困难-14章'
+    conditions:
+      - {pattern: '第14章', x_range: [0., 0.3], y_range: [0., 0.3]}
+      - {pattern: '普通', x_range: [0., 0.2], y_range: [0.8, 1.]}
+  - name: '章节选择-特殊'  # 活动的出击没有左下角的困难/普通
+    conditions:
+      - {pattern: '出击', x_range: [0., 0.3], y_range: [0., 0.2]}
+      - {pattern: '演习', x_range: [0.8, 1.], y_range: [0.8, 1.]}
+  - name: '立刻前往'
+    conditions:
+      - {pattern: '立刻前往', y_range: [0.5, 1]}
+  - name: '再次前往'
+    conditions:
+      - {pattern: '再次前往', y_range: [0.5, 1]}
+  - name: '战场'
+    conditions:
+      - {pattern: '撤退', x_range: [0.5, 1.], y_range: [0.8, 1.]}
+      - {pattern: '切换', x_range: [0.5, 1.], y_range: [0.8, 1.]}
+      - {pattern: '迎击', x_range: [0.5, 1.], y_range: [0.8, 1.]}
+  - name: '战斗中'
+    conditions:
+      - {pattern: '暂停.*', x_range: [0.8, 1.], y_range: [0., 0.1]}
+  - name: '演习主页'
+    conditions:
+      - {pattern: '演习', x_range: [0., 0.3], y_range: [0., 0.2]}
+      - {pattern: '排行榜', x_range: [0.6, 0.8], y_range: [0.8, 1.]}
+      - {pattern: '军需补给', x_range: [0.7, 1.], y_range: [0.8, 1.]}
+  - name: '演习对手信息'
+    conditions:
+      - {pattern: '演习对手信息'}
+  - name: '编队出击'
+    conditions:
+      - {pattern: '编队', x_range: [0, 0.3], y_range: [0, 0.1]}
+      - {pattern: '出击', x_range: [0.8, 1.], y_range: [0.8, 1.]}
+  - name: '战斗评价'
+    conditions:
+      - {pattern: '战斗评价', x_range: [0.5, 0.7], y_range: [0.4, 0.6]}
+  - name: '战斗获得道具'
+    conditions:
+      - {pattern: '获得道具', x_range: [0.4, 0.6], y_range: [0.2, 0.5]}
+  - name: '再次挑战' # 战斗获得经验
+    conditions:
+      - {pattern: '再次挑战', x_range: [0.6, 0.8], y_range: [0.8, 1.]}
+      - {pattern: '确定', x_range: [0.7, 1.], y_range: [0.8, 1.]}
+  - name: '战斗获得经验-end'
+    conditions:
+      - {pattern: '大获全胜|战术碾压|完成任务|作战超时|全军覆没', x_range: [0.1, 0.4], y_range: [0., 0.3]}
+      - {pattern: '确定', x_range: [0.7, 1.], y_range: [0.8, 1.]}
+  - name: '战斗获得经验-1'
+    conditions:
+      - {pattern: '大获全胜|战术碾压|完成任务|作战超时|全军覆没', x_range: [0.1, 0.4], y_range: [0., 0.3]}
+  - name: '战斗失败建议'
+    conditions:
+      - {pattern: '点击关闭', x_range: [0.4, 0.6], y_range: [0.7, 1.]}
+      - {pattern: '指挥官可以通过以下方式提升舰队实力', x_range: [0.4, 0.6], y_range: [0.2, 0.5]}
+  - name: '补给商店'
+    conditions:
+      - {pattern: '补给商店', x_range: [0., 0.3], y_range: [0., 0.3]}
+  - name: '对话框-船坞已满'
+    conditions:
+      - {pattern: '整理', x_range: [0.3, 0.5], y_range: [0.5, 0.8]}
+      - {pattern: '拓展', x_range: [0.4, 0.6], y_range: [0.5, 0.8]}
+      - {pattern: '强化', x_range: [0.5, 0.7], y_range: [0.5, 0.8]}
+  - name: '对话框-低心情状态'
+    conditions:
+      - {pattern: '.*低心情状态.*', x_range: [0.4, 0.6], y_range: [0.4, 0.6]}
+      - {pattern: '确定', x_range: [0.5, 0.7], y_range: [0.5, 0.8]}
+  - name: '对话框-暂停战斗'
+    conditions:
+      - {pattern: '退出战斗', x_range: [0.3, 0.5], y_range: [0.6, 0.8]}
+      - {pattern: '继续战斗', x_range: [0.5, 0.7], y_range: [0.6, 0.8]}
+  - name: '对话框-石油不足'
+    conditions:
+      - {pattern: '信息', x_range: [0., 0.5], y_range: [0., 0.5]}
+      - {pattern: '石油不足.*', x_range: [0.4, 0.6], y_range: [0.4, 0.6]}
+      - {pattern: '确定', x_range: [0.3, 0.5], y_range: [0.5, 0.8]}
+  - name: '对话框-新角色'
+    conditions:
+      - {pattern: '信息', x_range: [0., 0.5], y_range: [0., 0.5]}
+      - {pattern: '是否锁定该角色？', x_range: [0.4, 0.6], y_range: [0.4, 0.6]}
+      - {pattern: '确定', x_range: [0.3, 0.5], y_range: [0.5, 0.8]}
+  - name: '对话框-系统公告'
+    conditions:
+      - {pattern: '系统公告', x_range: [0.1, 0.2], y_range: [0., 0.2]}
+      - {pattern: '今日不再显示', x_range: [0.7, 0.8], y_range: [0., 0.2]}
+  - name: '对话框-应援' # 活动
+    conditions:
+      - {pattern: '知道了'}
+  - name: '对话框-消耗' # 活动
+    conditions:
+        - {pattern: '不消耗', x_range: [0.3, 0.5], y_range: [0.5, 1.]}
+  - name: '特别作战'
+    conditions:
+      - {pattern: '特别作战', x_range: [0., 0.3], y_range: [0., 0.2]}
+      - {pattern: '困难', x_range: [0.8, 1.], y_range: [0.3, 0.5]}
+modes:
+  # base mode
+  - name: 'base'  # 对所有模式都可以忽略的窗口
+    page_operations:
+      - page: '登陆页面'
+        operations:
+          - {type: 'click', point: [0.5, 0.5]}
+      - page: '活动页面'
+        operations:
+          - {type: 'click', point: [0.05, 0.1]}
+      - page: '个人信息'
+        operations:
+          - {type: 'click', point: [0.05, 0.1]}
+          - {type: 'sleep', time: 100}  # animation
+      - page: '战斗评价'
+        operations:
+            - {type: 'click', pattern: '战斗评价'}
+      - page: '战斗获得道具'
+        operations:
+            - {type: 'click', pattern: '获得道具'}
+      - page: '战斗获得经验-1'
+        operations:
+          - {type: 'click', pattern: '大获全胜|战术碾压|完成任务|作战超时|全军覆没'}
+      - page: '战斗获得经验-end'
+        operations:
+          - {type: 'click', pattern: '确定'}
+      - page: '战斗中'
+        operations:
+          - {type: 'sleep', time: 3000}
+      - page: '对话框-暂停战斗'
+        operations:
+          - {type: 'click', pattern: '继续战斗'}
+      - page: '对话框-应援'
+        operations:
+          - {type: 'click', pattern: '知道了'}
+      - page: '对话框-暂停战斗'
+        operations:
+          - {type: 'click', pattern: '继续战斗'}
+      - page: '对话框-系统公告'
+        operations:
+          - {type: 'click', pattern: 'X'}  # 右上角的关闭按钮
+  - name: 'base-main'  # 主线
+    page_operations:
+      - page: '主页'
+        operations:
+          - {type: 'click', pattern: '出击'}
+      - page: '出击主页'
+        operations:
+          - {type: 'click', pattern: '主线'}
+      - page: '立刻前往'
+        operations:
+          - {type: 'click', pattern: '立刻前往'}
+      - page: '再次前往'
+        operations:
+          - {type: 'click', pattern: '再次前往'}
+      - page: '对话框-应援'
+        operations:
+          - {type: 'click', pattern: '知道了'}
+      - page: '对话框-暂停战斗'
+        operations:
+          - {type: 'click', pattern: '继续战斗'}
+      - page: '战斗中'
+        operations:
+          - {type: 'sleep', time: 3000}
+      - page: '对话框-船坞已满'
+        operations:
+          - {type: 'over'}
+      - page: '对话框-低心情状态'
+        operations:
+          - {type: 'over'}
+      - page: '对话框-石油不足'
+        operations:
+          - {type: 'over'}
+  - name: 'base-main-common'
+    inherit: ['base-main']
+    page_operations:
+      - page: '章节选择-困难-.*'
+        operations:
+          - {type: 'click', pattern: '普通'}
+  - name: 'base-main-hard'
+    inherit: ['base-main']
+    page_operations:
+      - page: '章节选择-普通-.*'
+        operations:
+          - {type: 'click', pattern: '困难'}
+      - page: '弹出窗口-困难关卡次数不足'
+        operations:
+          - {type: 'over'}
+  # real mode
+  - name: 'return'  # 返回主页
+    inherit: ['base']
+    page_operations:
+      - page: '主页'
+        operations:
+          - {type: 'over'}
+    other_page_operations:
+      operations:
+        - {type: 'click', point: [0.05, 0.1]}
+    undefined_page_operations:
+      operations:
+        - {type: 'click', point: [0.05, 0.1]}
+  # 主线
+  - name: '1-1'
+    inherit: ['base', 'base-main-common']
+  - name: '1-2'
+    inherit: ['base', 'base-main-common']
+  - name: '1-3'
+    inherit: ['base', 'base-main-common']
+  - name: '1-4'
+    inherit: ['base', 'base-main-common']
+  - name: '2-1'
+    inherit: ['base', 'base-main-common']
+  - name: '2-2'
+    inherit: ['base', 'base-main-common']
+  - name: '2-3'
+    inherit: ['base', 'base-main-common']
+  - name: '2-4'
+    inherit: ['base', 'base-main-common']
+  - name: '3-1'
+    inherit: ['base', 'base-main-common']
+  - name: '3-2'
+    inherit: ['base', 'base-main-common']
+  - name: '3-3'
+    inherit: ['base', 'base-main-common']
+  - name: '3-4'
+    inherit: ['base', 'base-main-common']
+  - name: '4-1'
+    inherit: ['base', 'base-main-common']
+  - name: '4-2'
+    inherit: ['base', 'base-main-common']
+  - name: '4-3'
+    inherit: ['base', 'base-main-common']
+  - name: '4-4'
+    inherit: ['base', 'base-main-common']
+  - name: '5-1'
+    inherit: ['base', 'base-main-common']
+  - name: '5-2'
+    inherit: ['base', 'base-main-common']
+  - name: '5-3'
+    inherit: ['base', 'base-main-common']
+  - name: '5-4'
+    inherit: ['base', 'base-main-common']
+  - name: '6-1'
+    inherit: ['base', 'base-main-common']
+  - name: '6-2'
+    inherit: ['base', 'base-main-common']
+  - name: '6-3'
+    inherit: ['base', 'base-main-common']
+  - name: '6-4'
+    inherit: ['base', 'base-main-common']
+  - name: '7-1'
+    inherit: ['base', 'base-main-common']
+  - name: '7-2'
+    inherit: ['base', 'base-main-common']
+  - name: '7-3'
+    inherit: ['base', 'base-main-common']
+  - name: '7-4'
+    inherit: ['base', 'base-main-common']
+  - name: '8-1'
+    inherit: ['base', 'base-main-common']
+  - name: '8-2'
+    inherit: ['base', 'base-main-common']
+  - name: '8-3'
+    inherit: ['base', 'base-main-common']
+  - name: '8-4'
+    inherit: ['base', 'base-main-common']
+  - name: '9-1'
+    inherit: ['base', 'base-main-common']
+  - name: '9-2'
+    inherit: ['base', 'base-main-common']
+  - name: '9-3'
+    inherit: ['base', 'base-main-common']
+  - name: '9-4'
+    inherit: ['base', 'base-main-common']
+  - name: '10-1'
+    inherit: ['base', 'base-main-common']
+  - name: '10-2'
+    inherit: ['base', 'base-main-common']
+  - name: '10-3'
+    inherit: ['base', 'base-main-common']
+  - name: '10-4'
+    inherit: ['base', 'base-main-common']
+  - name: '11-1'
+    inherit: ['base', 'base-main-common']
+  - name: '11-2'
+    inherit: ['base', 'base-main-common']
+  - name: '11-3'
+    inherit: ['base', 'base-main-common']
+  - name: '11-4'
+    inherit: ['base', 'base-main-common']
+  - name: '12-1'
+    inherit: ['base', 'base-main-common']
+  - name: '12-2'
+    inherit: ['base', 'base-main-common']
+  - name: '12-3'
+    inherit: ['base', 'base-main-common']
+  - name: '12-4'
+    inherit: ['base', 'base-main-common']
+  - name: '13-1'
+    inherit: ['base', 'base-main-common']
+  - name: '13-2'
+    inherit: ['base', 'base-main-common']
+  - name: '13-3'
+    inherit: ['base', 'base-main-common']
+  - name: '13-4'
+    inherit: ['base', 'base-main-common']
+  - name: '14-1'
+    inherit: ['base', 'base-main-common']
+  - name: '14-2'
+    inherit: ['base', 'base-main-common']
+  - name: '14-3'
+    inherit: ['base', 'base-main-common']
+  - name: '14-4'
+    inherit: ['base', 'base-main-common']
+  - name: 'hard-1-1'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-1-2'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-1-3'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-1-4'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-2-1'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-2-2'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-2-3'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-2-4'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-3-1'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-3-2'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-3-3'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-3-4'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-4-1'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-4-2'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-4-3'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-4-4'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-5-1'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-5-2'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-5-3'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-5-4'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-6-1'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-6-2'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-6-3'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-6-4'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-7-1'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-7-2'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-7-3'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-7-4'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-8-1'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-8-2'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-8-3'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-8-4'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-9-1'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-9-2'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-9-3'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-9-4'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-10-1'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-10-2'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-10-3'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-10-4'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-11-1'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-11-2'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-11-3'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-11-4'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-12-1'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-12-2'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-12-3'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-12-4'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-13-1'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-13-2'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-13-3'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-13-4'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-14-1'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-14-2'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-14-3'
+    inherit: ['base', 'base-main-hard']
+  - name: 'hard-14-4'
+    inherit: ['base', 'base-main-hard']
+  - name: 'auxiliary'  # 手动刷图(没达到自律)
+    inherit: ['base']
+    page_operations:
+      - page: '立刻前往'
+        operations:
+          - {type: 'click', pattern: '立刻前往'}
+      - page: '战场'
+        operations:
+          - {type: 'sleep', time: 1000}
+      - page: '编队出击'
+        operations:
+          - {type: 'click', pattern: '出击'}
+      - page: '再次挑战'
+        operations:
+          - {type: 'click', pattern: '再次挑战'}
+    other_page_operations:
+      operations:
+        - {type: 'sleep', time: 1000}
+    undefined_page_operations:
+      operations:
+        - {type: 'sleep', time: 1000}
+  - name: 'exercise'  # 演习
+    inherit: ['base']
+    page_operations:
+      - page: '主页'
+        operations:
+          - {type: 'click', pattern: '出击'}
+      - page: '出击主页'
+        operations:
+          - {type: 'click', pattern: '演习'}
+      - page: '演习主页'
+        operations:
+          - {type: 'click', pattern: '综合实力'}
+      - page: '演习对手信息'
+        operations:
+          - {type: 'click', pattern: '开始演习'}
+      - page: '编队出击'
+        operations:
+          - {type: 'click', pattern: '出击'}
+      - page: '战场'  # '出击'直接进入战场
+        operations:
+          - {type: 'click', pattern: '迎击'}
+      - page: '战斗失败建议'
+        operations:
+          - {type: 'click', pattern: '点击关闭'}
+      - page: '章节选择-.*'  # 在主线的章节选择页面, 需要返回
+        operations:
+          - {type: 'click', point: [0.05, 0.1]}
+      - page: '弹出窗口-演习次数不足'
+        operations:
+          - {type: 'over'}
+      - page: '补给商店'
+        operations:
+          - {type: 'click', point: [0.05, 0.1]}
+  # 活动
+  - name: 'special'  # 需要选择章节的那种活动
+    inherit: ['base']
+    page_operations:
+      - page: '主页'
+        operations:
+          - {type: 'click', point: [0.56, 0.37]}
+      - page: '章节选择-特殊'
+        operations:
+          - {type: 'click', pattern: 'SP3.*'}
+      - page: '立刻前往'
+        operations:
+          - {type: 'click', pattern: '立刻前往'}
+      - page: '再次前往'
+        operations:
+          - {type: 'click', pattern: '再次前往'}
+      - page: '对话框-船坞已满'
+        operations:
+          - {type: 'over'}
+      - page: '对话框-低心情状态'
+        operations:
+          - {type: 'over'}
+      - page: '对话框-石油不足'
+        operations:
+          - {type: 'over'}
+  - name: 'special2'  # 只需要选择普通 困难的那种活动
+    inherit: ['base']
+    page_operations:
+      - page: '主页'
+        operations:
+          - {type: 'click', point: [0.56, 0.37]}
+      - page: '特别作战'
+        operations:
+          - {type: 'click', pattern: '困难'}
+      - page: '立刻前往'
+        operations:
+          - {type: 'click', pattern: '立刻前往'}
+      - page: '编队出击'
+        operations:
+          - {type: 'click', pattern: '出击'}
+      - page: '再次挑战'
+        operations:
+          - {type: 'click', pattern: '再次挑战'}
+      - page: '对话框-消耗'
+        operations:
+          - {type: 'over'}
+      - page: '对话框-船坞已满'
+        operations:
+          - {type: 'over'}
+      - page: '对话框-低心情状态'
+        operations:
+          - {type: 'over'}
+      - page: '对话框-石油不足'
+        operations:
+          - {type: 'over'}

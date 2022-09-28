@@ -1,0 +1,7 @@
+
+# build, android-build, build-android, ...
+*build*/
+.git/
+.clangd/
+compile_commands.json
+*.class
