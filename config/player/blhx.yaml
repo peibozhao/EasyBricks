@@ -1,5 +1,5 @@
+name: '碧蓝航线'
 type: 'blhx'
-name: 'blhx'
 pages:
   - name: '弹出窗口-演习次数不足'
     conditions:

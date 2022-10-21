@@ -6,11 +6,9 @@ ocr:
   recv_timeout: 10
 
 player:
-  configs: [player/blhx.yaml]
-  # config: player/test.yaml
-  name: blhx
-  mode: 3-4
-
+  configs: [player/blhx.yaml, player/txbm.yaml, player/test.yaml]
+  name: txbm
+  mode: 刷关
 capture:
   window_class: scrcpy
 

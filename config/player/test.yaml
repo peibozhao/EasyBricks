@@ -1,12 +1,18 @@
-type: 'blhx'
-name: 'blhx'
+name: '测试player'
+type: 'common'
 pages:
-  - name: '测试'
+  - name: 'TestPage'
     conditions:
-      - {pattern: 'XQueryPointer'}
+      - {pattern: 'XQueryPointer', x_range: [0, 0.1], y_range: [0, 0.1]}
 modes:
-  - name: '测试'
+  - name: '测试mode'
     page_operations:
-      - page: '测试'
+      - page: 'TestPage'
         operations:
-          - {type: 'click', pattern: 'XQueryPointer'}
+          - {type: 'click', pattern: 'Test'}
+    other_page_operations:
+      operations:
+        - {type: 'sleep', time: 1000}
+    undefined_page_operations:
+      operations:
+        - {type: 'sleep', time: 1000}

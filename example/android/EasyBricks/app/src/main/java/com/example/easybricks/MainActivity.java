@@ -12,8 +12,10 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
 import android.view.View;
-
-import com.google.android.material.textfield.TextInputEditText;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -26,10 +28,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
 
-    public void onScreenCaptureButton(View view) {
-        Log.i("MainActivity", "onScreenCaptureButton");
         // Create directory and file
         requestPermissions(new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE},
                 100);
@@ -51,12 +50,29 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
+        Spinner player_spin = findViewById(R.id.player_list);
+        BaseAdapter player_adapter = new PlayerAdapter();
+        player_spin.setAdapter(player_adapter);
+
+        Spinner mode_spin = findViewById(R.id.mode_list);
+        BaseAdapter mode_adapter = new ModeAdapter();
+        mode_spin.setAdapter(mode_adapter);
+    }
+
+    public void onPrepare(View view) {
+        Log.i("MainActivity", "onScreenCaptureButton");
+
         // Create consume thread to process screen capture
         new Thread() {
             @Override
             public void run() {
                 Log.i("MainActivity", "Thread start");
                 while (true) {
+                    try {
+                        Thread.sleep(1000);
+                    } catch (Exception e) {
+                        Log.e("MainActivity", "Exception: " + e.toString());
+                    }
                     ConsumeImage();
                 }
             }
@@ -73,16 +89,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onPlayerMode(View view) {
+        /*
         String player = ((TextInputEditText)findViewById(R.id.player)).getText().toString();
         String mode = ((TextInputEditText)findViewById(R.id.mode)).getText().toString();
         if (!easy_bricks.SetPlayMode(player, mode)) {
             Log.e("MainActivity", "SetPlayMode failed");
         }
+        */
     }
 
     private void ConsumeImage() {
         try {
-            Thread.sleep(1000);
             GlobalData.image_lock.lock();
             while (GlobalData.image_buffer == null) {
                 GlobalData.image_con.await();
@@ -107,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.i("MainActivity", "Click " + play_op.x + " " + play_op.y);
                     GlobalData.gesture_lock.lock();
                     GlobalData.click_x = play_op.x;
-                    GlobalData.click_y = play_op.y;
+                    GlobalData.click_y = play_op.y + 50;
                     GlobalData.gesture_con.signal();
                     GlobalData.gesture_lock.unlock();
                 } else if (play_op.type == 2) {
@@ -141,4 +158,68 @@ public class MainActivity extends AppCompatActivity {
         started = true;
     });
     private EasyBricks easy_bricks;
+
+    private class PlayerAdapter extends BaseAdapter {
+        @Override
+        public int getCount() {
+            if (easy_bricks == null) {
+                return 0;
+            } else {
+                return easy_bricks.Players().length;
+            }
+        }
+
+        @Override
+        public Object getItem(int position) {
+            if (easy_bricks != null) {
+                String []players = easy_bricks.Players();
+                return players[position];
+            }
+            return null;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            TextView textview = new TextView(MainActivity.this);
+            if (easy_bricks != null) {
+                String []players = easy_bricks.Players();
+                textview.setText(players[position]);
+            }
+            return textview;
+        }
+    }
+
+    private class ModeAdapter extends BaseAdapter {
+        @Override
+        public int getCount() {
+            Spinner player_spin = findViewById(R.id.player_list);
+            String player = (String)player_spin.getAdapter().getItem(player_spin.getSelectedItemPosition());
+            return easy_bricks.Modes(player).length;
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            TextView textview = new TextView(MainActivity.this);
+            Spinner player_spin = findViewById(R.id.player_list);
+            String player = (String)player_spin.getAdapter().getItem(player_spin.getSelectedItemPosition());
+            String []modes = easy_bricks.Modes(player);
+            textview.setText(modes[position]);
+            return textview;
+        }
+    }
 }

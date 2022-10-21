@@ -1,8 +1,5 @@
 package com.example.easybricks;
 
-import android.graphics.Bitmap;
-import android.media.Image;
-
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
