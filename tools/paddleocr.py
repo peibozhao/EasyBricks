@@ -34,6 +34,9 @@ for ocr_result in ocr_results:
     points = ocr_result['text_region']
     drawer.polygon([tuple(i) for i in points], outline=(255,0,0))
     drawer.text((points[0][0], points[0][1]-font_size), ocr_result['text'], font=font, fill=(255,0,0))
-    print(ocr_result['text'], ' -> ', points)
+    center = [0, 0]
+    center[0] = sum(i[0] for i in points) / len(points) / image.size[0]
+    center[1] = sum(i[1] for i in points) / len(points) / image.size[1]
+    print(ocr_result['text'], ' -> ', points, ' -> ', center)
 
 image.save('output.jpg')

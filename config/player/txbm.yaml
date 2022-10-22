@@ -20,8 +20,12 @@ pages:
   - name: '确认'
     conditions:
       - {pattern: '确认', x_range: [0.4, 0.6], y_range: [0.3, 0.4]}
-      - {pattern: '确定', x_range: [0.65, 0.75], y_range: [0.55, 0.65]}
       - {pattern: '取消', x_range: [0.25, 0.35], y_range: [0.55, 0.65]}
+      - {pattern: '确定', x_range: [0.65, 0.75], y_range: [0.55, 0.65]}
+  - name: '提示'
+    conditions:
+      - {pattern: '提示', x_range: [0.4, 0.6], y_range: [0.0, 0.5]}
+      - {pattern: '确定', y_range: [0.5, 1.0]}
   - name: '获得奖励'
     conditions:
       - {pattern: '获得奖励', x_range: [0.4, 0.6], y_range: [0.35, 0.45]}
@@ -42,6 +46,9 @@ modes:
         operations:
           - {type: 'click', pattern: '开始'}
       - page: '确认'
+        operations:
+          - {type: 'click', pattern: '确定'}
+      - page: '提示'
         operations:
           - {type: 'click', pattern: '确定'}
       - page: '获得奖励'
@@ -71,6 +78,9 @@ modes:
         operations:
           - {type: 'click', pattern: '开始'}
       - page: '确认'
+        operations:
+          - {type: 'click', pattern: '确定'}
+      - page: '提示'
         operations:
           - {type: 'click', pattern: '确定'}
       - page: '获得奖励'
