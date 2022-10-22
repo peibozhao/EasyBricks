@@ -55,7 +55,7 @@ public class ScreenCaptureService extends Service {
         Log.i("ScreenCaptureService", "onCreate");
         try {
             // Wait switching to the target window
-            Thread.sleep(10000);
+            Thread.sleep(5000);
         } catch(Exception e) {
             Log.e("ScreenCaptureService", "Exception: " + e.toString());
         }
@@ -102,6 +102,10 @@ public class ScreenCaptureService extends Service {
                             int row_stride = planes[0].getRowStride();
                             int row_padding = row_stride - pixel_stride * img.getWidth();
                             int image_width = img.getWidth() + row_padding / pixel_stride;
+                            if (!buffer.hasRemaining()) {
+                                Log.e("onImageAvailable", String.valueOf(buffer.remaining()));
+                                return;
+                            }
 
                             GlobalData.image_lock.lock();
                             GlobalData.width = image_width;

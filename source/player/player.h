@@ -50,7 +50,7 @@ public:
 
   virtual bool SetMode(const std::string &mode_name) { return false; }
 
-  virtual std::string GetMode() { return ""; }
+  virtual std::string Mode() { return ""; }
 
   virtual std::vector<std::string> Modes() { return {}; }
 

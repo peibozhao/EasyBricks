@@ -181,6 +181,14 @@ std::vector<std::string> GameSystem::Modes(const std::string &player) {
   return player_ptr->Modes();
 }
 
+std::string GameSystem::Player() {
+  return player_ == nullptr ? "" : player_->Name();
+}
+
+std::string GameSystem::Mode() {
+  return player_ == nullptr ? "" : player_->Mode();
+}
+
 bool GameSystem::SetPlayMode(const std::string &player,
                              const std::string &mode) {
   LOG(INFO) << "SetPlayMode " << player << " " << mode;

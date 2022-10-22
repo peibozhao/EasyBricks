@@ -55,7 +55,7 @@ public:
 
   bool SetMode(const std::string &mode_name) override;
 
-  std::string GetMode() override;
+  std::string Mode() override;
 
   std::vector<std::string> Modes() override;
 

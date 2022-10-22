@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -53,49 +54,55 @@ public class MainActivity extends AppCompatActivity {
         Spinner player_spin = findViewById(R.id.player_list);
         BaseAdapter player_adapter = new PlayerAdapter();
         player_spin.setAdapter(player_adapter);
+        String player = easy_bricks.Player();
+        for (int i = 0; i < player_adapter.getCount(); ++i) {
+            if (player.equals(player_adapter.getItem(i))) {
+                player_spin.setSelection(i);
+            }
+        }
 
         Spinner mode_spin = findViewById(R.id.mode_list);
         BaseAdapter mode_adapter = new ModeAdapter();
         mode_spin.setAdapter(mode_adapter);
+        String mode = easy_bricks.Mode();
+        for (int i = 0; i < mode_adapter.getCount(); ++i) {
+            if (mode.equals(mode_adapter.getItem(i))) {
+                mode_spin.setSelection(i);
+            }
+        }
     }
 
-    public void onPrepare(View view) {
+    public void onStartRun(View view) {
         Log.i("MainActivity", "onScreenCaptureButton");
 
-        // Create consume thread to process screen capture
-        new Thread() {
-            @Override
-            public void run() {
-                Log.i("MainActivity", "Thread start");
-                while (true) {
-                    try {
-                        Thread.sleep(1000);
-                    } catch (Exception e) {
-                        Log.e("MainActivity", "Exception: " + e.toString());
-                    }
-                    ConsumeImage();
-                }
-            }
-        }.start();
-
-        if (!started) {
+        Button button = (Button)findViewById(R.id.start_button);
+        running = !running;
+        if (running) {
+            // Start running
+            button.setText("Stop");
             Intent mp_intent = ((MediaProjectionManager)getSystemService(MEDIA_PROJECTION_SERVICE)).createScreenCaptureIntent();
             lan.launch(mp_intent);
+            running_thread.start();
         } else {
+            button.setText("Start");
             Intent screencap_intent = new Intent(this, ScreenCaptureService.class);
             stopService(screencap_intent);
-            started = false;
+            try {
+                running_thread.join();
+            } catch (Exception e) {
+                Log.e("MainActivity", "Exception: " + e.toString());
+            }
         }
     }
 
     public void onPlayerMode(View view) {
-        /*
-        String player = ((TextInputEditText)findViewById(R.id.player)).getText().toString();
-        String mode = ((TextInputEditText)findViewById(R.id.mode)).getText().toString();
+        Spinner player_spin = findViewById(R.id.player_list);
+        String player = (String)player_spin.getSelectedItem();
+        Spinner mode_spin = findViewById(R.id.mode_list);
+        String mode = (String)mode_spin.getSelectedItem();
         if (!easy_bricks.SetPlayMode(player, mode)) {
             Log.e("MainActivity", "SetPlayMode failed");
         }
-        */
     }
 
     private void ConsumeImage() {
@@ -118,13 +125,12 @@ public class MainActivity extends AppCompatActivity {
             out.close();
 
             PlayOperation []play_ops =  easy_bricks.InputRawImage(2, width, height, buffer);
-
             for (PlayOperation play_op : play_ops) {
                 if (play_op.type == 1) {
                     Log.i("MainActivity", "Click " + play_op.x + " " + play_op.y);
                     GlobalData.gesture_lock.lock();
                     GlobalData.click_x = play_op.x;
-                    GlobalData.click_y = play_op.y + 50;
+                    GlobalData.click_y = play_op.y;
                     GlobalData.gesture_con.signal();
                     GlobalData.gesture_lock.unlock();
                 } else if (play_op.type == 2) {
@@ -141,7 +147,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private String dir;
-    private boolean started = false;
+    private boolean running = false;
+    private Thread running_thread = new Thread() {
+        @Override
+        public void run() {
+            Log.i("MainActivity", "Thread start");
+            while (running) {
+                try {
+                    Thread.sleep(1000);
+                } catch (Exception e) {
+                    Log.e("MainActivity", "Exception: " + e.toString());
+                }
+                ConsumeImage();
+            }
+        }
+    };
     // Request MEDIA_PROJECTION_SERVICE. Start screen capture service
     ActivityResultLauncher<Intent> lan = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
         Log.i("MainActivity", "registerForActivityResult callback");
@@ -155,41 +175,32 @@ public class MainActivity extends AppCompatActivity {
         screencap_intent.putExtra("code", result.getResultCode());
         screencap_intent.putExtra("data", result.getData());
         startService(screencap_intent);
-        started = true;
     });
     private EasyBricks easy_bricks;
 
     private class PlayerAdapter extends BaseAdapter {
         @Override
         public int getCount() {
-            if (easy_bricks == null) {
-                return 0;
-            } else {
-                return easy_bricks.Players().length;
-            }
+             return easy_bricks.Players().length;
         }
 
         @Override
         public Object getItem(int position) {
-            if (easy_bricks != null) {
-                String []players = easy_bricks.Players();
-                return players[position];
-            }
-            return null;
+            String []players = easy_bricks.Players();
+            return players[position];
         }
 
         @Override
         public long getItemId(int position) {
-            return 0;
+            return position;
         }
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             TextView textview = new TextView(MainActivity.this);
-            if (easy_bricks != null) {
-                String []players = easy_bricks.Players();
-                textview.setText(players[position]);
-            }
+            String []players = easy_bricks.Players();
+            textview.setText(players[position]);
+            textview.setTextSize(30);
             return textview;
         }
     }
@@ -198,27 +209,31 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public int getCount() {
             Spinner player_spin = findViewById(R.id.player_list);
-            String player = (String)player_spin.getAdapter().getItem(player_spin.getSelectedItemPosition());
+            String player = (String)player_spin.getSelectedItem();
             return easy_bricks.Modes(player).length;
         }
 
         @Override
         public Object getItem(int position) {
-            return null;
+            Spinner player_spin = findViewById(R.id.player_list);
+            String player = (String)player_spin.getSelectedItem();
+            String []modes = easy_bricks.Modes(player);
+            return modes[position];
         }
 
         @Override
         public long getItemId(int position) {
-            return 0;
+            return position;
         }
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             TextView textview = new TextView(MainActivity.this);
             Spinner player_spin = findViewById(R.id.player_list);
-            String player = (String)player_spin.getAdapter().getItem(player_spin.getSelectedItemPosition());
+            String player = (String)player_spin.getSelectedItem();
             String []modes = easy_bricks.Modes(player);
             textview.setText(modes[position]);
+            textview.setTextSize(30);
             return textview;
         }
     }

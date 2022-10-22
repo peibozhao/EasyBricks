@@ -137,7 +137,7 @@ bool CommonPlayer::SetMode(const std::string &mode_name) {
   return false;
 }
 
-std::string CommonPlayer::GetMode() { return mode_->name; }
+std::string CommonPlayer::Mode() { return mode_->name; }
 
 std::vector<std::string> CommonPlayer::Modes() {
   std::vector<std::string> ret;

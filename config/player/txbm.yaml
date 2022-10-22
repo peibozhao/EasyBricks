@@ -6,9 +6,13 @@ pages:
       - {pattern: 'SKIP'}
   - name: 'clear'
     conditions:
-      - {pattern: '再次挑战'}
-      - {pattern: '返回地图'}
-      - {pattern: '前往下关'}
+      - {pattern: '再次挑战', x_range: [0.1, 0.3]}
+      - {pattern: '返回地图', x_range: [0.4, 0.6]}
+      - {pattern: '前往下关', x_range: [0.7, 0.9]}
+  - name: 'clear2'
+    conditions:
+      - {pattern: '再次挑战', x_range: [0.2, 0.5]}
+      - {pattern: '返回地图', x_range: [0.5, 0.7]}
   - name: '开始'
     conditions:
       - {pattern: '开始'}
@@ -34,6 +38,35 @@ modes:
       - page: 'clear'
         operations:
           - {type: 'click', pattern: '前往下关'}
+      - page: '开始'
+        operations:
+          - {type: 'click', pattern: '开始'}
+      - page: '确认'
+        operations:
+          - {type: 'click', pattern: '确定'}
+      - page: '获得奖励'
+        operations:
+          - {type: 'click', pattern: '确定'}
+      - page: '等级提升'
+        operations:
+          - {type: 'click', point: [0.5, 0.8]}
+    other_page_operations:
+      operations:
+        - {type: 'sleep', time: 1000}
+    undefined_page_operations:
+      operations:
+        - {type: 'sleep', time: 1000}
+  - name: '单刷'
+    page_operations:
+      - page: 'skip'
+        operations:
+          - {type: 'click', pattern: 'SKIP'}
+      - page: 'clear'
+        operations:
+          - {type: 'click', pattern: '再次挑战'}
+      - page: 'clear2'
+        operations:
+          - {type: 'click', pattern: '再次挑战'}
       - page: '开始'
         operations:
           - {type: 'click', pattern: '开始'}

@@ -9,6 +9,7 @@ player:
   configs: [player/blhx.yaml, player/txbm.yaml, player/test.yaml]
   name: txbm
   mode: 刷关
+
 capture:
   window_class: scrcpy
 

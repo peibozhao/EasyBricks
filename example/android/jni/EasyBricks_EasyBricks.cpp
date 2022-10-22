@@ -85,6 +85,24 @@ jobjectArray Java_EasyBricks_EasyBricks_Modes(JNIEnv *jni, jobject obj,
   return VectorStringCppToJava(jni, modes);
 }
 
+// Player
+jstring Java_EasyBricks_EasyBricks_Player(JNIEnv *jni, jobject obj) {
+  int id = GetJObjectID(jni, obj);
+  std::shared_ptr<GameSystem> system = id_system_map[id];
+  std::string player = system->Player();
+  jstring jstr = jni->NewStringUTF(player.c_str());
+  return jstr;
+}
+
+// Mode
+jstring Java_EasyBricks_EasyBricks_Mode(JNIEnv *jni, jobject obj) {
+  int id = GetJObjectID(jni, obj);
+  std::shared_ptr<GameSystem> system = id_system_map[id];
+  std::string mode = system->Mode();
+  jstring jstr = jni->NewStringUTF(mode.c_str());
+  return jstr;
+}
+
 // SetPlayMode
 jboolean Java_EasyBricks_EasyBricks_SetPlayMode(JNIEnv *jni, jobject obj,
                                                 jstring player, jstring mode) {

@@ -21,6 +21,10 @@ public:
 
   std::vector<std::string> Modes(const std::string &player = "");
 
+  std::string Player();
+
+  std::string Mode();
+
   bool SetPlayMode(const std::string &player, const std::string &mode);
 
   std::vector<PlayOperation> InputImage(ImageFormat format,

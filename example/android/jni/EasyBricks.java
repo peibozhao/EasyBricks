@@ -12,6 +12,10 @@ public class EasyBricks {
 
   public native String []Modes(String player);
 
+  public native String Player();
+
+  public native String Mode();
+
   public native boolean SetPlayMode(String player, String mode);
 
   public native PlayOperation []InputImage(int format, byte []buffer);
